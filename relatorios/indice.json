@@ -1,0 +1,9 @@
+{
+ "BatteryLife-Li_DBSCAN_todos_cap-rul-knee_ref100_K4_671cel.html": {
+  "datasets": "todos",
+  "features": "cap, rul, knee",
+  "k": 4,
+  "celulas": 671,
+  "ciclo_ref": 100
+ }
+}
