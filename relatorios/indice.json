@@ -12,5 +12,12 @@
   "k": 17,
   "celulas": 758,
   "ciclo_ref": 100
+ },
+ "BatteryLife-Li_DBSCAN_cada-dataset_tensao-cap-corrente_ref100.html": {
+  "datasets": "cada um separado (5 de 14 testes ok)",
+  "features": "tensao, cap, corrente",
+  "k": "todos=17, ISU_ILCC=10, MICH=2, SNL=2, XJTU=2",
+  "celulas": "758",
+  "ciclo_ref": 100
  }
 }
