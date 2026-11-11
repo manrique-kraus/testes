@@ -5,5 +5,12 @@
   "k": 4,
   "celulas": 671,
   "ciclo_ref": 100
+ },
+ "BatteryLife-Li_DBSCAN_todos_tensao-cap-corrente_ref100_K17_758cel.html": {
+  "datasets": "todos",
+  "features": "tensao, cap, corrente",
+  "k": 17,
+  "celulas": 758,
+  "ciclo_ref": 100
  }
 }
