@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BatteryLife-Li_MATR_conjuntos_A_estado_vs_B_variacao_ref100</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; color:#222; background:#fafafa; margin:0; }
+  main { max-width:1500px; margin:0 auto; padding:0 24px 40px; }
+  h1 { font-size:24px; margin:18px 0 6px; }
+  h2 { font-size:22px; border-bottom:3px solid #2196F3; padding-bottom:4px; margin:0 0 8px; }
+  nav { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:10px 24px; z-index:9;
+         display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; }
+  nav a { color:#1565c0; text-decoration:none; }
+  section { background:#fff; border:1px solid #ddd; border-radius:8px; padding:18px; margin:22px 0;
+             scroll-margin-top:60px; }
+  .info { color:#444; font-size:14px; margin:0 0 12px; }
+  .dupla { display:grid; grid-template-columns:1fr 1.6fr; gap:14px; align-items:start; }
+  @media (max-width:900px) { .dupla { grid-template-columns:1fr; } }
+  figure { margin:0 0 14px; }
+  figcaption { font-size:13px; color:#666; text-align:center; }
+  img { width:100%; border:1px solid #eee; background:#fff; }
+  .tab { border-collapse:collapse; font-size:13px; }
+  .tab th, .tab td { border:1px solid #ccc; padding:4px 10px; text-align:center; }
+  .tab th { background:#eceff1; }
+  tr.falhou td { color:#999; }
+  .obs, .voltar { color:#666; font-size:13px; }
+  .topo { text-align:right; font-size:13px; margin:6px 0 0; }
+  details { margin-top:8px; }
+</style></head><body id="topo">
+<nav><b>Testes:</b> <a href="#comparacao">Comparação</a> <a href="#teste-A-estado">A_estado</a> <a href="#teste-B-variacao">B_variacao</a></nav>
+<main>
+<p class="voltar"><a href="../index.html">← todos os relatórios</a></p>
+<h1>Comparação de conjuntos de features — MATR (BatteryLife), DBSCAN + 5 algoritmos</h1>
+<p class="obs"><b>A_estado</b>: soh,r,temp · <b>B_variacao</b>: dsoh,dr,dtemp<br>ciclos 6–10 e 96–100 · MinPts = 6 · K = do DBSCAN · régua externa: vida útil (ε² do Kruskal-Wallis e CV)</p>
+
+<section id="resumo"><h2>Resumo</h2><div style="overflow-x:auto"><table class="tab"><tr><th>teste</th><th>features</th><th>células</th><th>ruído</th><th>K DBSCAN</th><th>K usado</th><th>Eps</th><th>situação</th></tr><tr class="falhou"><td><a href="#teste-A-estado">A_estado</a></td><td>soh, r, temp</td><td>124</td><td>14</td><td>1</td><td>1</td><td>0.1374</td><td>K = 1: um grupo só (tente um Eps menor em EPS_MANUAL ou use K_FIXO)</td></tr><tr class="falhou"><td><a href="#teste-B-variacao">B_variacao</a></td><td>dsoh, dr, dtemp</td><td>124</td><td>10</td><td>1</td><td>1</td><td>0.0932</td><td>K = 1: um grupo só (tente um Eps menor em EPS_MANUAL ou use K_FIXO)</td></tr></table></div></section>
+
+
+<section id="teste-A-estado">
+  <h2>A_estado: soh, r, temp</h2>
+  <p class="info">células: <b>124</b> · ruído: <b>14</b> · K DBSCAN: <b>1</b> · K usado: <b>1</b> · Eps: <b>0.1374</b><br>Situação: <b>K = 1: um grupo só (tente um Eps menor em EPS_MANUAL ou use K_FIXO)</b></p>
+  <div class="dupla"><figure><a href="BatteryLife-Li_MATR_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_1_dbscan.png" target="_blank"><img src="BatteryLife-Li_MATR_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure></div>
+  
+  
+  
+  <p class="topo"><a href="#topo">↑ voltar ao topo</a></p>
+</section>
+<section id="teste-B-variacao">
+  <h2>B_variacao: dsoh, dr, dtemp</h2>
+  <p class="info">células: <b>124</b> · ruído: <b>10</b> · K DBSCAN: <b>1</b> · K usado: <b>1</b> · Eps: <b>0.0932</b><br>Situação: <b>K = 1: um grupo só (tente um Eps menor em EPS_MANUAL ou use K_FIXO)</b></p>
+  <div class="dupla"><figure><a href="BatteryLife-Li_MATR_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_1_dbscan.png" target="_blank"><img src="BatteryLife-Li_MATR_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure></div>
+  
+  
+  
+  <p class="topo"><a href="#topo">↑ voltar ao topo</a></p>
+</section>
+</main></body></html>

@@ -19,5 +19,12 @@
   "k": "todos=17, ISU_ILCC=10, MICH=2, SNL=2, XJTU=2",
   "celulas": "758",
   "ciclo_ref": 100
+ },
+ "BatteryLife-Li_MATR_conjuntos_A_estado_vs_B_variacao_ref100.html": {
+  "datasets": "MATR: comparação de conjuntos (0 de 2 ok)",
+  "features": "A_estado: soh, r, temp | B_variacao: dsoh, dr, dtemp",
+  "k": "",
+  "celulas": "124",
+  "ciclo_ref": 100
  }
 }
