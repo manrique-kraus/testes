@@ -26,5 +26,12 @@
   "k": "",
   "celulas": "124",
   "ciclo_ref": 100
+ },
+ "BatteryLife-Li_XJTU_conjuntos_A_estado_vs_B_variacao_ref100.html": {
+  "datasets": "XJTU: comparação de conjuntos (1 de 2 ok)",
+  "features": "A_estado: tensao, cap, corrente | B_variacao: dtensao, dcap, dcorrente",
+  "k": "A_estado=2",
+  "celulas": "47",
+  "ciclo_ref": 100
  }
 }
