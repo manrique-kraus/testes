@@ -40,5 +40,12 @@
   "k": "A_estado=12, B_variacao=2",
   "celulas": "286",
   "ciclo_ref": 100
+ },
+ "BatteryLife-Li_XJTU-ISU_ILCC-Tongji_conjuntos_A_estado_vs_B_variacao_ref100.html": {
+  "datasets": "XJTU-ISU_ILCC-Tongji: comparação de conjuntos (2 de 2 ok)",
+  "features": "A_estado: tensao, cap, corrente | B_variacao: dtensao, dcap, dcorrente",
+  "k": "A_estado=7, B_variacao=2",
+  "celulas": "385",
+  "ciclo_ref": 100
  }
 }
