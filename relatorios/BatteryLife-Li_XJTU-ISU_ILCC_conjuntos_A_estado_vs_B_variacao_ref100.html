@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; color:#222; background:#fafafa; margin:0; }
+  main { max-width:1500px; margin:0 auto; padding:0 24px 40px; }
+  h1 { font-size:24px; margin:18px 0 6px; }
+  h2 { font-size:22px; border-bottom:3px solid #2196F3; padding-bottom:4px; margin:0 0 8px; }
+  nav { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:10px 24px; z-index:9;
+         display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; }
+  nav a { color:#1565c0; text-decoration:none; }
+  section { background:#fff; border:1px solid #ddd; border-radius:8px; padding:18px; margin:22px 0;
+             scroll-margin-top:60px; }
+  .info { color:#444; font-size:14px; margin:0 0 12px; }
+  .dupla { display:grid; grid-template-columns:1fr 1.6fr; gap:14px; align-items:start; }
+  @media (max-width:900px) { .dupla { grid-template-columns:1fr; } }
+  figure { margin:0 0 14px; }
+  figcaption { font-size:13px; color:#666; text-align:center; }
+  img { width:100%; border:1px solid #eee; background:#fff; }
+  .tab { border-collapse:collapse; font-size:13px; }
+  .tab th, .tab td { border:1px solid #ccc; padding:4px 10px; text-align:center; }
+  .tab th { background:#eceff1; }
+  tr.falhou td { color:#999; }
+  .obs, .voltar { color:#666; font-size:13px; }
+  .topo { text-align:right; font-size:13px; margin:6px 0 0; }
+  details { margin-top:8px; }
+</style></head><body id="topo">
+<nav><b>Testes:</b> <a href="#comparacao">Comparação</a> <a href="#teste-A-estado">A_estado</a> <a href="#teste-B-variacao">B_variacao</a></nav>
+<main>
+<p class="voltar"><a href="../index.html">← todos os relatórios</a></p>
+<h1>Comparação de conjuntos de features — XJTU-ISU_ILCC (BatteryLife), DBSCAN + 5 algoritmos</h1>
+<p class="obs"><b>A_estado</b>: tensao,cap,corrente · <b>B_variacao</b>: dtensao,dcap,dcorrente<br>ciclos 6–10 e 96–100 · MinPts = 6 · K = do DBSCAN · régua externa: vida útil (ε² do Kruskal-Wallis e CV)</p>
+
+<section id="resumo"><h2>Resumo</h2><div style="overflow-x:auto"><table class="tab"><tr><th>teste</th><th>features</th><th>células</th><th>ruído</th><th>células no estágio 2</th><th>K DBSCAN</th><th>K usado</th><th>Eps</th><th>maior silhueta</th><th>maior ε² vida</th><th>situação</th></tr><tr class="ok"><td><a href="#teste-A-estado">A_estado</a></td><td>tensao, cap, corrente</td><td>286</td><td>47</td><td>239</td><td>12</td><td>12</td><td>0.1051</td><td>SVC</td><td>FCM (0.707)</td><td>ok (5 aviso(s))</td></tr><tr class="ok"><td><a href="#teste-B-variacao">B_variacao</a></td><td>dtensao, dcap, dcorrente</td><td>286</td><td>14</td><td>272</td><td>2</td><td>2</td><td>0.0994</td><td>SVC</td><td>SVC (0.108)</td><td>ok</td></tr></table></div></section>
+<section id="comparacao"><h2>Comparação entre os conjuntos</h2>
+  <figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_comparacao.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_comparacao.png" loading="lazy"></a>
+  <figcaption>Métricas internas e régua da vida, por algoritmo e conjunto</figcaption></figure>
+  <p class="info">Placar: em quantos algoritmos cada conjunto ganhou cada métrica</p><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A_estado</th>
+      <th>B_variacao</th>
+    </tr>
+    <tr>
+      <th>métrica</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Silhouette</th>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Davies-Bouldin</th>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Calinski-Harabasz</th>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Dunn</th>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Xie-Beni</th>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>DBCV</th>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>ε² vida</th>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CV vida</th>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>TOTAL internas</th>
+      <td>1</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>TOTAL régua da vida</th>
+      <td>10</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table></section>
+
+<section id="teste-A-estado">
+  <h2>A_estado: tensao, cap, corrente</h2>
+  <p class="info">células: <b>286</b> · ruído: <b>47</b> · células no estágio 2: <b>239</b> · K DBSCAN: <b>12</b> · K usado: <b>12</b> · Eps: <b>0.1051</b> · maior ε² vida: <b>FCM (0.707)</b><br>Situação: <b>ok (5 aviso(s))</b></p>
+  <div class="dupla"><figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_1_dbscan.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure><figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_3_metricas.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_3_metricas.png" loading="lazy"></a><figcaption>Métricas de validação</figcaption></figure></div>
+  <figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_2_clusters.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_2_clusters.png" loading="lazy"></a><figcaption>Estágio 2: clusters dos 5 algoritmos</figcaption></figure>
+  <figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_4_vida.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/00_A_estado/A_estado_4_vida.png" loading="lazy"></a><figcaption>Régua externa: vida útil por cluster</figcaption></figure>
+  <details><summary>Tabela de métricas</summary><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Silhouette</th>
+      <th>Davies-Bouldin</th>
+      <th>Calinski-Harabasz</th>
+      <th>Dunn</th>
+      <th>Xie-Beni</th>
+      <th>DBCV</th>
+      <th>ε² vida</th>
+      <th>p (Kruskal-Wallis)</th>
+      <th>CV vida</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SVC</th>
+      <td>0.5959</td>
+      <td>0.4877</td>
+      <td>348.5158</td>
+      <td>0.0634</td>
+      <td>0.2303</td>
+      <td>0.5156</td>
+      <td>0.6844</td>
+      <td>0.0</td>
+      <td>0.3781</td>
+    </tr>
+    <tr>
+      <th>K-means</th>
+      <td>0.5740</td>
+      <td>0.6069</td>
+      <td>457.5392</td>
+      <td>0.0629</td>
+      <td>0.2435</td>
+      <td>0.3253</td>
+      <td>0.6978</td>
+      <td>0.0</td>
+      <td>0.3235</td>
+    </tr>
+    <tr>
+      <th>GMM</th>
+      <td>0.5680</td>
+      <td>0.5982</td>
+      <td>439.3055</td>
+      <td>0.0867</td>
+      <td>0.2490</td>
+      <td>0.2996</td>
+      <td>0.7013</td>
+      <td>0.0</td>
+      <td>0.3241</td>
+    </tr>
+    <tr>
+      <th>FCM</th>
+      <td>0.5742</td>
+      <td>0.6060</td>
+      <td>453.9475</td>
+      <td>0.0453</td>
+      <td>0.2216</td>
+      <td>0.2258</td>
+      <td>0.7067</td>
+      <td>0.0</td>
+      <td>0.3541</td>
+    </tr>
+    <tr>
+      <th>SOM</th>
+      <td>0.5849</td>
+      <td>0.5536</td>
+      <td>417.7912</td>
+      <td>0.0445</td>
+      <td>0.1715</td>
+      <td>0.2902</td>
+      <td>0.6596</td>
+      <td>0.0</td>
+      <td>0.3778</td>
+    </tr>
+  </tbody>
+</table></details>
+  <p class="topo"><a href="#topo">↑ voltar ao topo</a></p>
+</section>
+<section id="teste-B-variacao">
+  <h2>B_variacao: dtensao, dcap, dcorrente</h2>
+  <p class="info">células: <b>286</b> · ruído: <b>14</b> · células no estágio 2: <b>272</b> · K DBSCAN: <b>2</b> · K usado: <b>2</b> · Eps: <b>0.0994</b> · maior ε² vida: <b>SVC (0.108)</b><br>Situação: <b>ok</b></p>
+  <div class="dupla"><figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_1_dbscan.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure><figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_3_metricas.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_3_metricas.png" loading="lazy"></a><figcaption>Métricas de validação</figcaption></figure></div>
+  <figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_2_clusters.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_2_clusters.png" loading="lazy"></a><figcaption>Estágio 2: clusters dos 5 algoritmos</figcaption></figure>
+  <figure><a href="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_4_vida.png" target="_blank"><img src="BatteryLife-Li_XJTU-ISU_ILCC_conjuntos_A_estado_vs_B_variacao_ref100/01_B_variacao/B_variacao_4_vida.png" loading="lazy"></a><figcaption>Régua externa: vida útil por cluster</figcaption></figure>
+  <details><summary>Tabela de métricas</summary><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Silhouette</th>
+      <th>Davies-Bouldin</th>
+      <th>Calinski-Harabasz</th>
+      <th>Dunn</th>
+      <th>Xie-Beni</th>
+      <th>DBCV</th>
+      <th>ε² vida</th>
+      <th>p (Kruskal-Wallis)</th>
+      <th>CV vida</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SVC</th>
+      <td>0.712</td>
+      <td>0.3588</td>
+      <td>493.5669</td>
+      <td>0.3729</td>
+      <td>0.0613</td>
+      <td>0.4829</td>
+      <td>0.1083</td>
+      <td>0.0</td>
+      <td>0.767</td>
+    </tr>
+    <tr>
+      <th>K-means</th>
+      <td>0.712</td>
+      <td>0.3588</td>
+      <td>493.5669</td>
+      <td>0.3729</td>
+      <td>0.0613</td>
+      <td>0.4829</td>
+      <td>0.1083</td>
+      <td>0.0</td>
+      <td>0.767</td>
+    </tr>
+    <tr>
+      <th>GMM</th>
+      <td>0.712</td>
+      <td>0.3588</td>
+      <td>493.5669</td>
+      <td>0.3729</td>
+      <td>0.0613</td>
+      <td>0.4829</td>
+      <td>0.1083</td>
+      <td>0.0</td>
+      <td>0.767</td>
+    </tr>
+    <tr>
+      <th>FCM</th>
+      <td>0.712</td>
+      <td>0.3588</td>
+      <td>493.5669</td>
+      <td>0.3729</td>
+      <td>0.0613</td>
+      <td>0.4829</td>
+      <td>0.1083</td>
+      <td>0.0</td>
+      <td>0.767</td>
+    </tr>
+    <tr>
+      <th>SOM</th>
+      <td>0.712</td>
+      <td>0.3588</td>
+      <td>493.5669</td>
+      <td>0.3729</td>
+      <td>0.0613</td>
+      <td>0.4829</td>
+      <td>0.1083</td>
+      <td>0.0</td>
+      <td>0.767</td>
+    </tr>
+  </tbody>
+</table></details>
+  <p class="topo"><a href="#topo">↑ voltar ao topo</a></p>
+</section>
+</main></body></html>
