@@ -47,5 +47,15 @@
   "k": "A_estado=7, B_variacao=2",
   "celulas": "385",
   "ciclo_ref": 100
+ },
+ "Filtro-01_Fisher-Score_XJTU-ISU_ILCC-Tongji.html": {
+  "fase": "Seleção de características: filtro",
+  "titulo": "Filtro 01: Fisher Score",
+  "data": "2026-11-24",
+  "datasets": "XJTU + ISU_ILCC + Tongji",
+  "features": "A_base: tensao, cap, corrente | B_fisher: tensao, tensao_carga, cap_carga",
+  "k": "A_base=7, B_fisher=5",
+  "celulas": "385",
+  "ciclo_ref": 100
  }
 }
