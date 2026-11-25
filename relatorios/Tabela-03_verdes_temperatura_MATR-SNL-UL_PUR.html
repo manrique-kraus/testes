@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabela 03: campos verdes + temperatura (MATR + SNL + UL_PUR)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; color:#222; background:#fafafa; margin:0; }
+  main { max-width:1500px; margin:0 auto; padding:0 24px 40px; }
+  h1 { font-size:24px; margin:18px 0 6px; }
+  h2 { font-size:22px; border-bottom:3px solid #2196F3; padding-bottom:4px; margin:0 0 8px; }
+  nav { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:10px 24px; z-index:9;
+         display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; }
+  nav a { color:#1565c0; text-decoration:none; }
+  section { background:#fff; border:1px solid #ddd; border-radius:8px; padding:18px; margin:22px 0;
+             scroll-margin-top:60px; }
+  .info { color:#444; font-size:14px; margin:0 0 12px; }
+  .dupla { display:grid; grid-template-columns:1fr 1.6fr; gap:14px; align-items:start; }
+  @media (max-width:900px) { .dupla { grid-template-columns:1fr; } }
+  figure { margin:0 0 14px; }
+  figcaption { font-size:13px; color:#666; text-align:center; }
+  img { width:100%; border:1px solid #eee; background:#fff; }
+  .tab { border-collapse:collapse; font-size:13px; }
+  .tab th, .tab td { border:1px solid #ccc; padding:4px 10px; text-align:center; }
+  .tab th { background:#eceff1; }
+  tr.falhou td { color:#999; }
+  .obs, .voltar { color:#666; font-size:13px; }
+  .topo { text-align:right; font-size:13px; margin:6px 0 0; }
+  details { margin-top:8px; }
+</style></head><body id="topo">
+<nav><a href="#resumo">Resumo</a> <a href="#campos">Campos</a> <a href="#estagio1">DBSCAN e métricas</a> <a href="#estagio2">Clusters</a> <a href="#vida">Vida</a></nav>
+<main>
+<p class="voltar"><a href="../index.html">← todos os relatórios</a></p>
+<h1>Tabela 03: campos verdes + temperatura (MATR + SNL + UL_PUR)</h1>
+<p class="obs">Datasets: MATR, SNL, UL_PUR<br>ciclos 96–100 · MinPts = 6 · K = do DBSCAN</p>
+
+<section id="resumo"><h2>Resumo</h2><table class="tab"><tr><th>datasets</th><td>MATR + SNL + UL_PUR</td></tr><tr><th>campos</th><td>19</td></tr><tr><th>campos que variam</th><td>13</td></tr><tr><th>sem variação</th><td>anodo, formato, prof_carga, prof_descarga, ciclos_gastos, n_ciclo</td></tr><tr><th>células</th><td>229</td></tr><tr><th>ruído</th><td>63</td></tr><tr><th>células no estágio 2</th><td>–</td></tr><tr><th>K DBSCAN</th><td>1</td></tr><tr><th>K usado</th><td>1</td></tr><tr><th>Eps</th><td>0.121</td></tr><tr><th>maior silhueta</th><td>–</td></tr><tr><th>situação</th><td>K = 1: um grupo só (tente um Eps menor em EPS_MANUAL ou use K_FIXO)</td></tr></table></section>
+<section id="campos"><h2>Campos usados</h2><table class="tab"><tr><th>nome</th><th>campo</th><th>medido</th><th>varia entre as células</th></tr><tr><td>nominal</td><td>Capacidade nominal (Ah)</td><td>por célula</td><td>sim</td></tr><tr><td>catodo</td><td>Material do cátodo</td><td>por célula</td><td>sim</td></tr><tr><td>anodo</td><td>Material do ânodo</td><td>por célula</td><td>não</td></tr><tr><td>formato</td><td>Formato</td><td>por célula</td><td>não</td></tr><tr><td>prot_carga</td><td>Protocolo de carga (C médio)</td><td>por célula</td><td>sim</td></tr><tr><td>prot_descarga</td><td>Protocolo de descarga (C médio)</td><td>por célula</td><td>sim</td></tr><tr><td>faixa_soc</td><td>Faixa de SOC (fim − início)</td><td>por célula</td><td>sim</td></tr><tr><td>prof_carga</td><td>Profundidade de carga</td><td>por célula</td><td>não</td></tr><tr><td>prof_descarga</td><td>Profundidade de descarga</td><td>por célula</td><td>não</td></tr><tr><td>v_max</td><td>Tensão máxima (V)</td><td>por célula</td><td>sim</td></tr><tr><td>v_min</td><td>Tensão mínima (V)</td><td>por célula</td><td>sim</td></tr><tr><td>ciclos_gastos</td><td>Ciclos já gastos</td><td>por célula</td><td>não</td></tr><tr><td>n_ciclo</td><td>Nº do ciclo</td><td>por ciclo</td><td>não</td></tr><tr><td>tensao</td><td>Tensão média de descarga (V)</td><td>por ciclo</td><td>sim</td></tr><tr><td>corrente</td><td>Corrente de descarga (C)</td><td>por ciclo</td><td>sim</td></tr><tr><td>cap</td><td>Capacidade de descarga / nominal</td><td>por ciclo</td><td>sim</td></tr><tr><td>cap_carga</td><td>Capacidade de carga / nominal</td><td>por ciclo</td><td>sim</td></tr><tr><td>tempo</td><td>Tempo de carga + descarga (h)</td><td>por ciclo</td><td>sim</td></tr><tr><td>temp</td><td>Temp. média na descarga (°C)</td><td>por ciclo</td><td>sim</td></tr></table></section>
+<section id="estagio1"><h2>DBSCAN e métricas</h2><p class="info">Gráficos 3D: 3 primeiras componentes do PCA. O clustering usa todos os campos.</p>
+  <div class="dupla"><figure><a href="Tabela-03_verdes_temperatura_MATR-SNL-UL_PUR/03_verdes_temperatura_1_dbscan.png" target="_blank"><img src="Tabela-03_verdes_temperatura_MATR-SNL-UL_PUR/03_verdes_temperatura_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure></div>
+  </section>
+<section id="estagio2"><h2>Clusters</h2></section>
+<section id="vida"><h2>Vida útil por cluster</h2></section>
+</main></body></html>

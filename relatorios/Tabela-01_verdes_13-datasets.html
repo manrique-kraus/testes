@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabela 01: todos os campos verdes (13 datasets Li-ion)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; color:#222; background:#fafafa; margin:0; }
+  main { max-width:1500px; margin:0 auto; padding:0 24px 40px; }
+  h1 { font-size:24px; margin:18px 0 6px; }
+  h2 { font-size:22px; border-bottom:3px solid #2196F3; padding-bottom:4px; margin:0 0 8px; }
+  nav { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:10px 24px; z-index:9;
+         display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; }
+  nav a { color:#1565c0; text-decoration:none; }
+  section { background:#fff; border:1px solid #ddd; border-radius:8px; padding:18px; margin:22px 0;
+             scroll-margin-top:60px; }
+  .info { color:#444; font-size:14px; margin:0 0 12px; }
+  .dupla { display:grid; grid-template-columns:1fr 1.6fr; gap:14px; align-items:start; }
+  @media (max-width:900px) { .dupla { grid-template-columns:1fr; } }
+  figure { margin:0 0 14px; }
+  figcaption { font-size:13px; color:#666; text-align:center; }
+  img { width:100%; border:1px solid #eee; background:#fff; }
+  .tab { border-collapse:collapse; font-size:13px; }
+  .tab th, .tab td { border:1px solid #ccc; padding:4px 10px; text-align:center; }
+  .tab th { background:#eceff1; }
+  tr.falhou td { color:#999; }
+  .obs, .voltar { color:#666; font-size:13px; }
+  .topo { text-align:right; font-size:13px; margin:6px 0 0; }
+  details { margin-top:8px; }
+</style></head><body id="topo">
+<nav><a href="#resumo">Resumo</a> <a href="#campos">Campos</a> <a href="#estagio1">DBSCAN e métricas</a> <a href="#estagio2">Clusters</a> <a href="#vida">Vida</a></nav>
+<main>
+<p class="voltar"><a href="../index.html">← todos os relatórios</a></p>
+<h1>Tabela 01: todos os campos verdes (13 datasets Li-ion)</h1>
+<p class="obs">Datasets: CALCE, HNEI, HUST, ISU_ILCC, MATR, MICH, MICH_EXP, RWTH, SNL, Stanford, Tongji, UL_PUR, XJTU<br>ciclos 96–100 · MinPts = 6 · K = do DBSCAN</p>
+
+<section id="resumo"><h2>Resumo</h2><table class="tab"><tr><th>datasets</th><td>13 datasets Li-ion</td></tr><tr><th>campos</th><td>18</td></tr><tr><th>campos que variam</th><td>14</td></tr><tr><th>sem variação</th><td>prof_carga, prof_descarga, ciclos_gastos, n_ciclo</td></tr><tr><th>células</th><td>857</td></tr><tr><th>ruído</th><td>53</td></tr><tr><th>células no estágio 2</th><td>804</td></tr><tr><th>K DBSCAN</th><td>21</td></tr><tr><th>K usado</th><td>21</td></tr><tr><th>Eps</th><td>0.2213</td></tr><tr><th>maior silhueta</th><td>SVC</td></tr><tr><th>situação</th><td>ok (5 aviso(s))</td></tr></table></section>
+<section id="campos"><h2>Campos usados</h2><table class="tab"><tr><th>nome</th><th>campo</th><th>medido</th><th>varia entre as células</th></tr><tr><td>nominal</td><td>Capacidade nominal (Ah)</td><td>por célula</td><td>sim</td></tr><tr><td>catodo</td><td>Material do cátodo</td><td>por célula</td><td>sim</td></tr><tr><td>anodo</td><td>Material do ânodo</td><td>por célula</td><td>sim</td></tr><tr><td>formato</td><td>Formato</td><td>por célula</td><td>sim</td></tr><tr><td>prot_carga</td><td>Protocolo de carga (C médio)</td><td>por célula</td><td>sim</td></tr><tr><td>prot_descarga</td><td>Protocolo de descarga (C médio)</td><td>por célula</td><td>sim</td></tr><tr><td>faixa_soc</td><td>Faixa de SOC (fim − início)</td><td>por célula</td><td>sim</td></tr><tr><td>prof_carga</td><td>Profundidade de carga</td><td>por célula</td><td>não</td></tr><tr><td>prof_descarga</td><td>Profundidade de descarga</td><td>por célula</td><td>não</td></tr><tr><td>v_max</td><td>Tensão máxima (V)</td><td>por célula</td><td>sim</td></tr><tr><td>v_min</td><td>Tensão mínima (V)</td><td>por célula</td><td>sim</td></tr><tr><td>ciclos_gastos</td><td>Ciclos já gastos</td><td>por célula</td><td>não</td></tr><tr><td>n_ciclo</td><td>Nº do ciclo</td><td>por ciclo</td><td>não</td></tr><tr><td>tensao</td><td>Tensão média de descarga (V)</td><td>por ciclo</td><td>sim</td></tr><tr><td>corrente</td><td>Corrente de descarga (C)</td><td>por ciclo</td><td>sim</td></tr><tr><td>cap</td><td>Capacidade de descarga / nominal</td><td>por ciclo</td><td>sim</td></tr><tr><td>cap_carga</td><td>Capacidade de carga / nominal</td><td>por ciclo</td><td>sim</td></tr><tr><td>tempo</td><td>Tempo de carga + descarga (h)</td><td>por ciclo</td><td>sim</td></tr></table></section>
+<section id="estagio1"><h2>DBSCAN e métricas</h2><p class="info">Gráficos 3D: 3 primeiras componentes do PCA. O clustering usa todos os campos.</p>
+  <div class="dupla"><figure><a href="Tabela-01_verdes_13-datasets/01_verdes_1_dbscan.png" target="_blank"><img src="Tabela-01_verdes_13-datasets/01_verdes_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure><figure><a href="Tabela-01_verdes_13-datasets/01_verdes_3_metricas.png" target="_blank"><img src="Tabela-01_verdes_13-datasets/01_verdes_3_metricas.png" loading="lazy"></a><figcaption>Métricas de validação</figcaption></figure></div>
+  <details><summary>Tabela de métricas</summary><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Silhouette</th>
+      <th>Davies-Bouldin</th>
+      <th>Calinski-Harabasz</th>
+      <th>Dunn</th>
+      <th>Xie-Beni</th>
+      <th>DBCV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SVC</th>
+      <td>0.6830</td>
+      <td>0.6098</td>
+      <td>1827.4364</td>
+      <td>0.0694</td>
+      <td>0.4880</td>
+      <td>0.5424</td>
+    </tr>
+    <tr>
+      <th>K-means</th>
+      <td>0.6596</td>
+      <td>0.6024</td>
+      <td>2057.2018</td>
+      <td>0.0550</td>
+      <td>0.2292</td>
+      <td>0.3951</td>
+    </tr>
+    <tr>
+      <th>GMM</th>
+      <td>0.6793</td>
+      <td>0.5791</td>
+      <td>2030.6425</td>
+      <td>0.0376</td>
+      <td>0.1660</td>
+      <td>0.5017</td>
+    </tr>
+    <tr>
+      <th>FCM</th>
+      <td>0.6611</td>
+      <td>0.6258</td>
+      <td>2089.5783</td>
+      <td>0.0625</td>
+      <td>0.2244</td>
+      <td>0.3612</td>
+    </tr>
+  </tbody>
+</table></details></section>
+<section id="estagio2"><h2>Clusters</h2><figure><a href="Tabela-01_verdes_13-datasets/01_verdes_2_clusters.png" target="_blank"><img src="Tabela-01_verdes_13-datasets/01_verdes_2_clusters.png" loading="lazy"></a><figcaption>Estágio 2: clusters dos 5 algoritmos</figcaption></figure></section>
+<section id="vida"><h2>Vida útil por cluster</h2><figure><a href="Tabela-01_verdes_13-datasets/01_verdes_4_vida.png" target="_blank"><img src="Tabela-01_verdes_13-datasets/01_verdes_4_vida.png" loading="lazy"></a><figcaption>Vida útil por cluster</figcaption></figure></section>
+</main></body></html>

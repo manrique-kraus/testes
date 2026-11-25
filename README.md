@@ -57,3 +57,11 @@ Nº = ordem em que o teste foi feito.
 | 22 | 25/11/2026 | [Filtro 01: Fisher Score: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Filtro-01_Fisher-Score_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_fisher: cap, cap\_carga, tempo\_carga | A\_base=17, B\_fisher=6 | 857 |
 | 23 | 25/11/2026 | [Filtro 02: Limiar de Variância: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Filtro-02_Limiar-de-Variancia_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_variancia: tensao, tensao\_carga, corrente\_carga | A\_base=17, B\_variancia=14 | 857 |
 | 24 | 25/11/2026 | [Filtro 03: Diferença Absoluta Média: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Filtro-03_Diferenca-Absoluta-Media_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_diferenca: tensao, tensao\_carga, corrente\_carga | A\_base=17, B\_diferenca=14 | 857 |
+
+## Fase 7: Todos os campos da tabela (verdes)
+
+| Nº | Data | Teste | Datasets | Features | K | Células |
+|---|---|---|---|---|---|---|
+| 25 | 25/11/2026 | [Tabela 01: todos os campos verdes](https://manrique-kraus.github.io/testes/relatorios/Tabela-01_verdes_13-datasets.html) | 13 datasets Li-ion | nominal, catodo, anodo, formato, prot\_carga, prot\_descarga, faixa\_soc, prof\_carga, prof\_descarga, v\_max, v\_min, ciclos\_gastos, n\_ciclo, tensao, corrente, cap, cap\_carga, tempo | 21 | 857 |
+| 26 | 25/11/2026 | [Tabela 02: campos verdes + corrente máxima](https://manrique-kraus.github.io/testes/relatorios/Tabela-02_verdes_corrente_RWTH-SNL.html) | RWTH + SNL | nominal, catodo, anodo, formato, prot\_carga, prot\_descarga, faixa\_soc, prof\_carga, prof\_descarga, v\_max, v\_min, ciclos\_gastos, n\_ciclo, tensao, corrente, cap, cap\_carga, tempo, i\_max | 5 | 100 |
+| 27 | 25/11/2026 | [Tabela 03: campos verdes + temperatura](https://manrique-kraus.github.io/testes/relatorios/Tabela-03_verdes_temperatura_MATR-SNL-UL_PUR.html) | MATR + SNL + UL\_PUR | nominal, catodo, anodo, formato, prot\_carga, prot\_descarga, faixa\_soc, prof\_carga, prof\_descarga, v\_max, v\_min, ciclos\_gastos, n\_ciclo, tensao, corrente, cap, cap\_carga, tempo, temp | 1 | 229 |

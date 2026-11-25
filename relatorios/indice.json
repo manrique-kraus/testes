@@ -87,5 +87,35 @@
   "k": "A_base=17, B_diferenca=14",
   "celulas": "857",
   "ciclo_ref": 100
+ },
+ "Tabela-01_verdes_13-datasets.html": {
+  "fase": "Todos os campos da tabela (verdes)",
+  "titulo": "Tabela 01: todos os campos verdes",
+  "data": "2026-11-25",
+  "datasets": "13 datasets Li-ion",
+  "features": "nominal, catodo, anodo, formato, prot_carga, prot_descarga, faixa_soc, prof_carga, prof_descarga, v_max, v_min, ciclos_gastos, n_ciclo, tensao, corrente, cap, cap_carga, tempo",
+  "k": "21",
+  "celulas": "857",
+  "ciclo_ref": 100
+ },
+ "Tabela-02_verdes_corrente_RWTH-SNL.html": {
+  "fase": "Todos os campos da tabela (verdes)",
+  "titulo": "Tabela 02: campos verdes + corrente máxima",
+  "data": "2026-11-25",
+  "datasets": "RWTH + SNL",
+  "features": "nominal, catodo, anodo, formato, prot_carga, prot_descarga, faixa_soc, prof_carga, prof_descarga, v_max, v_min, ciclos_gastos, n_ciclo, tensao, corrente, cap, cap_carga, tempo, i_max",
+  "k": "5",
+  "celulas": "100",
+  "ciclo_ref": 100
+ },
+ "Tabela-03_verdes_temperatura_MATR-SNL-UL_PUR.html": {
+  "fase": "Todos os campos da tabela (verdes)",
+  "titulo": "Tabela 03: campos verdes + temperatura",
+  "data": "2026-11-25",
+  "datasets": "MATR + SNL + UL_PUR",
+  "features": "nominal, catodo, anodo, formato, prot_carga, prot_descarga, faixa_soc, prof_carga, prof_descarga, v_max, v_min, ciclos_gastos, n_ciclo, tensao, corrente, cap, cap_carga, tempo, temp",
+  "k": "1",
+  "celulas": "229",
+  "ciclo_ref": 100
  }
 }
