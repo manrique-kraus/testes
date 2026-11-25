@@ -67,5 +67,15 @@
   "k": "A_base=17, B_fisher=6",
   "celulas": "857",
   "ciclo_ref": 100
+ },
+ "Filtro-02_Limiar-de-Variancia_13-datasets.html": {
+  "fase": "Seleção de características: filtro",
+  "titulo": "Filtro 02: Limiar de Variância",
+  "data": "2026-11-25",
+  "datasets": "CALCE + HNEI + HUST + ISU_ILCC + MATR + MICH + MICH_EXP + RWTH + SNL + Stanford + Tongji + UL_PUR + XJTU",
+  "features": "A_base: tensao, cap, corrente | B_variancia: tensao, tensao_carga, corrente_carga",
+  "k": "A_base=17, B_variancia=14",
+  "celulas": "857",
+  "ciclo_ref": 100
  }
 }

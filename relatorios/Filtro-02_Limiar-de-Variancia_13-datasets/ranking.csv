@@ -1,0 +1,17 @@
+posição,feature,descrição,Limiar de Variância,situação,no conjunto base
+1,tensao,Tensão média de descarga (V),0.090519,escolhida,sim
+2,tensao_carga,Tensão média de carga (V),0.077436,escolhida,
+3,corrente_carga,Corrente média de carga (C),0.074255,escolhida,
+4,corrente,Corrente de descarga (C),0.063935,,sim
+5,cap_carga,Capacidade de carga / nominal,0.046977,,
+6,cap,SOH (capacidade de descarga),0.045859,,sim
+7,tempo_carga,Tempo de carga (h),0.032057,,
+8,dcap_carga,Δ Capacidade de carga / nominal,0.029794,,
+9,dcap,Δ SOH (capacidade de descarga),0.027355,,
+10,tempo_desc,Tempo de descarga (h),0.016177,,
+11,dtensao_carga,Δ Tensão média de carga (V),0.009575,removida (abaixo do limiar),
+12,dcorrente_carga,Δ Corrente média de carga (C),0.00755,removida (abaixo do limiar),
+13,dtempo_carga,Δ Tempo de carga (h),0.004146,removida (abaixo do limiar),
+14,dtensao,Δ Tensão média de descarga (V),0.003561,removida (abaixo do limiar),
+15,dcorrente,Δ Corrente de descarga (C),0.002751,removida (abaixo do limiar),
+16,dtempo_desc,Δ Tempo de descarga (h),0.001816,removida (abaixo do limiar),

@@ -53,5 +53,6 @@ Nº = ordem em que o teste foi feito.
 
 | Nº | Data | Teste | Datasets | Features | K | Células |
 |---|---|---|---|---|---|---|
-| 21 | 24/11/2026 | [Filtro 01: Fisher Score](https://manrique-kraus.github.io/testes/relatorios/Filtro-01_Fisher-Score_XJTU-ISU_ILCC-Tongji.html) | XJTU + ISU\_ILCC + Tongji | A\_base: tensao, cap, corrente / B\_fisher: tensao, tensao\_carga, cap\_carga | A\_base=7, B\_fisher=5 | 385 |
-| 22 | 25/11/2026 | [Filtro 01: Fisher Score](https://manrique-kraus.github.io/testes/relatorios/Filtro-01_Fisher-Score_13-datasets.html) | CALCE + HNEI + HUST + ISU\_ILCC + MATR + MICH + MICH\_EXP + RWTH + SNL + Stanford + Tongji + UL\_PUR + XJTU | A\_base: tensao, cap, corrente / B\_fisher: cap, cap\_carga, tempo\_carga | A\_base=17, B\_fisher=6 | 857 |
+| 21 | 24/11/2026 | [Filtro 01: Fisher Score: XJTU + ISU\_ILCC + Tongji](https://manrique-kraus.github.io/testes/relatorios/Filtro-01_Fisher-Score_XJTU-ISU_ILCC-Tongji.html) | XJTU + ISU\_ILCC + Tongji | A\_base: tensao, cap, corrente / B\_fisher: tensao, tensao\_carga, cap\_carga | A\_base=7, B\_fisher=5 | 385 |
+| 22 | 25/11/2026 | [Filtro 01: Fisher Score: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Filtro-01_Fisher-Score_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_fisher: cap, cap\_carga, tempo\_carga | A\_base=17, B\_fisher=6 | 857 |
+| 23 | 25/11/2026 | [Filtro 02: Limiar de Variância: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Filtro-02_Limiar-de-Variancia_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_variancia: tensao, tensao\_carga, corrente\_carga | A\_base=17, B\_variancia=14 | 857 |
