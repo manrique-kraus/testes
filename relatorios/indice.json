@@ -127,5 +127,15 @@
   "k": "A_base=2, B_fisher=4",
   "celulas": "47",
   "ciclo_ref": 100
+ },
+ "Filtro-02_Limiar-de-Variancia_XJTU.html": {
+  "fase": "Seleção de características: filtro",
+  "titulo": "Filtro 02: Limiar de Variância",
+  "data": "2026-11-25",
+  "datasets": "XJTU",
+  "features": "A_base: tensao, cap, corrente | B_variancia: corrente_carga, tempo_carga, corrente",
+  "k": "A_base=2, B_variancia=3",
+  "celulas": "47",
+  "ciclo_ref": 100
  }
 }
