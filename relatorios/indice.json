@@ -169,5 +169,16 @@
   "k": "A_base=17, B_regressiva=7",
   "celulas": "857",
   "ciclo_ref": 100
+ },
+ "Encapsulamento-03_RFE_13-datasets.html": {
+  "fase": "Seleção de características: encapsulamento",
+  "titulo": "Encapsulamento 03: Eliminação Recursiva (RFE)",
+  "data": "2026-11-25",
+  "quando": "2026-11-25 17:30:14.810269-03:00",
+  "datasets": "CALCE + HNEI + HUST + ISU_ILCC + MATR + MICH + MICH_EXP + RWTH + SNL + Stanford + Tongji + UL_PUR + XJTU",
+  "features": "A_base: tensao, cap, corrente | B_rfe: cap, tempo_desc, dtensao",
+  "k": "A_base=17, B_rfe=4",
+  "celulas": "857",
+  "ciclo_ref": 100
  }
 }

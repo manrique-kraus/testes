@@ -67,6 +67,7 @@ Nº = ordem em que o teste foi feito.
 |---|---|---|---|---|---|---|
 | 31 | 25/11/2026 | [Encapsulamento 01: Seleção Progressiva: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Encapsulamento-01_Selecao-Progressiva_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_progressiva: tempo\_carga, cap\_carga, dtensao | A\_base=17, B\_progressiva=3 | 857 |
 | 32 | 25/11/2026 | [Encapsulamento 02: Eliminação Regressiva: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Encapsulamento-02_Eliminacao-Regressiva_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_regressiva: cap, tempo\_desc, corrente\_carga | A\_base=17, B\_regressiva=7 | 857 |
+| 33 | 25/11/2026 | [Encapsulamento 03: Eliminação Recursiva (RFE): 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Encapsulamento-03_RFE_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_rfe: cap, tempo\_desc, dtensao | A\_base=17, B\_rfe=4 | 857 |
 
 ## Fase 8: Todos os campos da tabela (verdes)
 
