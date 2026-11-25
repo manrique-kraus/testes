@@ -1,0 +1,17 @@
+posição,feature,descrição,Diferença Absoluta Média,situação,no conjunto base
+1,corrente_carga,Corrente média de carga (C),0.448783,escolhida,
+2,tempo_carga,Tempo de carga (h),0.444284,escolhida,
+3,corrente,Corrente de descarga (C),0.370306,escolhida,sim
+4,tensao,Tensão média de descarga (V),0.34336,,sim
+5,tensao_carga,Tensão média de carga (V),0.342334,,
+6,tempo_desc,Tempo de descarga (h),0.282271,,
+7,dcorrente_carga,Δ Corrente média de carga (C),0.261644,,
+8,dtempo_carga,Δ Tempo de carga (h),0.258734,,
+9,dtensao_carga,Δ Tensão média de carga (V),0.238522,,
+10,cap,SOH (capacidade de descarga),0.213909,,sim
+11,cap_carga,Capacidade de carga / nominal,0.21295,,
+12,dtensao,Δ Tensão média de descarga (V),0.160792,,
+13,dcap_carga,Δ Capacidade de carga / nominal,0.140335,,
+14,dcap,Δ SOH (capacidade de descarga),0.129274,,
+15,dtempo_desc,Δ Tempo de descarga (h),0.108631,,
+16,dcorrente,Δ Corrente de descarga (C),0.081279,,
