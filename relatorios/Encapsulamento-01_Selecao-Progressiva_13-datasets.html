@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seleção por encapsulamento 01: Seleção Progressiva (13 datasets)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; color:#222; background:#fafafa; margin:0; }
+  main { max-width:1500px; margin:0 auto; padding:0 24px 40px; }
+  h1 { font-size:24px; margin:18px 0 6px; }
+  h2 { font-size:22px; border-bottom:3px solid #2196F3; padding-bottom:4px; margin:0 0 8px; }
+  nav { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:10px 24px; z-index:9;
+         display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; }
+  nav a { color:#1565c0; text-decoration:none; }
+  section { background:#fff; border:1px solid #ddd; border-radius:8px; padding:18px; margin:22px 0;
+             scroll-margin-top:60px; }
+  .info { color:#444; font-size:14px; margin:0 0 12px; }
+  .dupla { display:grid; grid-template-columns:1fr 1.6fr; gap:14px; align-items:start; }
+  @media (max-width:900px) { .dupla { grid-template-columns:1fr; } }
+  figure { margin:0 0 14px; }
+  figcaption { font-size:13px; color:#666; text-align:center; }
+  img { width:100%; border:1px solid #eee; background:#fff; }
+  .tab { border-collapse:collapse; font-size:13px; }
+  .tab th, .tab td { border:1px solid #ccc; padding:4px 10px; text-align:center; }
+  .tab th { background:#eceff1; }
+  tr.falhou td { color:#999; }
+  .obs, .voltar { color:#666; font-size:13px; }
+  .topo { text-align:right; font-size:13px; margin:6px 0 0; }
+  details { margin-top:8px; }
+</style></head><body id="topo">
+<nav><b>Testes:</b> <a href="#selecao">Seleção</a> <a href="#comparacao">Comparação</a> <a href="#teste-A-base">A_base</a> <a href="#teste-B-progressiva">B_progressiva</a></nav>
+<main>
+<p class="voltar"><a href="../index.html">← todos os relatórios</a></p>
+<h1>Seleção por encapsulamento 01: Seleção Progressiva (13 datasets)</h1>
+<p class="obs">Seleção Progressiva: começa sem nenhuma e, em cada passo, acrescenta a feature que mais aumenta a acurácia da regressão logística em prever a classe de vida. As 3 mais importantes formam o conjunto B_progressiva, comparado com o conjunto base no mesmo teste (DBSCAN + 5 algoritmos, mesmas células). A vida escolhe as features, mas não entra no clustering nem nas métricas.</p>
+<p class="obs"><b>A_base</b>: tensao,cap,corrente · <b>B_progressiva</b>: tempo_carga,cap_carga,dtensao<br>ciclos 6–10 e 96–100 · MinPts = 6 · K = do DBSCAN</p>
+
+<section id="resumo"><h2>Resumo</h2><div style="overflow-x:auto"><table class="tab"><tr><th>teste</th><th>features</th><th>células</th><th>ruído</th><th>células no estágio 2</th><th>K DBSCAN</th><th>K usado</th><th>Eps</th><th>maior silhueta</th><th>situação</th></tr><tr class="ok"><td><a href="#teste-A-base">A_base</a></td><td>tensao, cap, corrente</td><td>857</td><td>99</td><td>758</td><td>17</td><td>17</td><td>0.0744</td><td>GMM</td><td>ok (5 aviso(s))</td></tr><tr class="ok"><td><a href="#teste-B-progressiva">B_progressiva</a></td><td>tempo_carga, cap_carga, dtensao</td><td>857</td><td>40</td><td>817</td><td>3</td><td>3</td><td>0.0628</td><td>SVC</td><td>ok</td></tr></table></div></section>
+<section id="selecao"><h2>Seleção das features: Seleção Progressiva</h2>
+  <p class="info">Escolhidas: <b>tempo_carga, cap_carga, dtensao</b> · base: <b>tensao, cap, corrente</b></p>
+  <figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_selecao.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_selecao.png" loading="lazy"></a>
+  <figcaption>Ranking das candidatas e distribuição das escolhidas</figcaption></figure>
+  <details open><summary>Ranking completo (desempenho = acurácia do modelo com as features até a linha)</summary><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th>posição</th>
+      <th>feature</th>
+      <th>descrição</th>
+      <th>desempenho</th>
+      <th>situação</th>
+      <th>no conjunto base</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>tempo_carga</td>
+      <td>Tempo de carga (h)</td>
+      <td>0.5492</td>
+      <td>escolhida</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>cap_carga</td>
+      <td>Capacidade de carga / nominal</td>
+      <td>0.6336</td>
+      <td>escolhida</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>dtensao</td>
+      <td>Δ Tensão média de descarga (V)</td>
+      <td>0.6947</td>
+      <td>escolhida</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>dcorrente_carga</td>
+      <td>Δ Corrente média de carga (C)</td>
+      <td>0.7036</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>dtempo_desc</td>
+      <td>Δ Tempo de descarga (h)</td>
+      <td>0.7040</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>cap</td>
+      <td>SOH (capacidade de descarga)</td>
+      <td>0.7005</td>
+      <td></td>
+      <td>sim</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>dtempo_carga</td>
+      <td>Δ Tempo de carga (h)</td>
+      <td>0.6939</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>dtensao_carga</td>
+      <td>Δ Tensão média de carga (V)</td>
+      <td>0.6888</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>tempo_desc</td>
+      <td>Tempo de descarga (h)</td>
+      <td>0.6822</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>tensao</td>
+      <td>Tensão média de descarga (V)</td>
+      <td>0.6943</td>
+      <td></td>
+      <td>sim</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>tensao_carga</td>
+      <td>Tensão média de carga (V)</td>
+      <td>0.7059</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>corrente_carga</td>
+      <td>Corrente média de carga (C)</td>
+      <td>0.7098</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>dcap_carga</td>
+      <td>Δ Capacidade de carga / nominal</td>
+      <td>0.7141</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>dcap</td>
+      <td>Δ SOH (capacidade de descarga)</td>
+      <td>0.7114</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>dcorrente</td>
+      <td>Δ Corrente de descarga (C)</td>
+      <td>0.7067</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>corrente</td>
+      <td>Corrente de descarga (C)</td>
+      <td>0.7005</td>
+      <td></td>
+      <td>sim</td>
+    </tr>
+  </tbody>
+</table></details></section>
+<section id="comparacao"><h2>Comparação entre os conjuntos</h2>
+  <figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_comparacao.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_comparacao.png" loading="lazy"></a>
+  <figcaption>Métricas internas, por algoritmo e conjunto</figcaption></figure>
+  <p class="info">Placar: em quantos algoritmos cada conjunto ganhou cada métrica</p><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A_base</th>
+      <th>B_progressiva</th>
+    </tr>
+    <tr>
+      <th>métrica</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Silhouette</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Davies-Bouldin</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Calinski-Harabasz</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Dunn</th>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Xie-Beni</th>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>DBCV</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <td>18</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table></section>
+
+<section id="teste-A-base">
+  <h2>A_base: tensao, cap, corrente</h2>
+  <p class="info">células: <b>857</b> · ruído: <b>99</b> · células no estágio 2: <b>758</b> · K DBSCAN: <b>17</b> · K usado: <b>17</b> · Eps: <b>0.0744</b><br>Situação: <b>ok (5 aviso(s))</b></p>
+  <div class="dupla"><figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_1_dbscan.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure><figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_3_metricas.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_3_metricas.png" loading="lazy"></a><figcaption>Métricas de validação</figcaption></figure></div>
+  <figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_2_clusters.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_2_clusters.png" loading="lazy"></a><figcaption>Estágio 2: clusters dos 5 algoritmos</figcaption></figure>
+  <figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_4_vida.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/00_A_base/A_base_4_vida.png" loading="lazy"></a><figcaption>Vida útil por cluster</figcaption></figure>
+  <details><summary>Tabela de métricas</summary><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Silhouette</th>
+      <th>Davies-Bouldin</th>
+      <th>Calinski-Harabasz</th>
+      <th>Dunn</th>
+      <th>Xie-Beni</th>
+      <th>DBCV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SVC</th>
+      <td>0.5345</td>
+      <td>0.6356</td>
+      <td>1168.1439</td>
+      <td>0.0006</td>
+      <td>0.3954</td>
+      <td>0.1854</td>
+    </tr>
+    <tr>
+      <th>K-means</th>
+      <td>0.4974</td>
+      <td>0.7408</td>
+      <td>2013.2457</td>
+      <td>0.0172</td>
+      <td>0.5376</td>
+      <td>-0.3789</td>
+    </tr>
+    <tr>
+      <th>GMM</th>
+      <td>0.5659</td>
+      <td>0.7810</td>
+      <td>1765.3997</td>
+      <td>0.0151</td>
+      <td>0.6885</td>
+      <td>0.1507</td>
+    </tr>
+    <tr>
+      <th>FCM</th>
+      <td>0.4935</td>
+      <td>0.7325</td>
+      <td>1917.8919</td>
+      <td>0.0084</td>
+      <td>0.5618</td>
+      <td>-0.3064</td>
+    </tr>
+  </tbody>
+</table></details>
+  <p class="topo"><a href="#topo">↑ voltar ao topo</a></p>
+</section>
+<section id="teste-B-progressiva">
+  <h2>B_progressiva: tempo_carga, cap_carga, dtensao</h2>
+  <p class="info">células: <b>857</b> · ruído: <b>40</b> · células no estágio 2: <b>817</b> · K DBSCAN: <b>3</b> · K usado: <b>3</b> · Eps: <b>0.0628</b><br>Situação: <b>ok</b></p>
+  <div class="dupla"><figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_1_dbscan.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_1_dbscan.png" loading="lazy"></a><figcaption>Estágio 1: DBSCAN (X preto = ruído retirado)</figcaption></figure><figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_3_metricas.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_3_metricas.png" loading="lazy"></a><figcaption>Métricas de validação</figcaption></figure></div>
+  <figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_2_clusters.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_2_clusters.png" loading="lazy"></a><figcaption>Estágio 2: clusters dos 5 algoritmos</figcaption></figure>
+  <figure><a href="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_4_vida.png" target="_blank"><img src="Encapsulamento-01_Selecao-Progressiva_13-datasets/01_B_progressiva/B_progressiva_4_vida.png" loading="lazy"></a><figcaption>Vida útil por cluster</figcaption></figure>
+  <details><summary>Tabela de métricas</summary><table class="dataframe tab">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Silhouette</th>
+      <th>Davies-Bouldin</th>
+      <th>Calinski-Harabasz</th>
+      <th>Dunn</th>
+      <th>Xie-Beni</th>
+      <th>DBCV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SVC</th>
+      <td>0.4509</td>
+      <td>0.8072</td>
+      <td>375.1645</td>
+      <td>0.0144</td>
+      <td>0.4585</td>
+      <td>-0.5505</td>
+    </tr>
+    <tr>
+      <th>K-means</th>
+      <td>0.4051</td>
+      <td>0.9319</td>
+      <td>671.4749</td>
+      <td>0.0188</td>
+      <td>0.3441</td>
+      <td>-0.7596</td>
+    </tr>
+    <tr>
+      <th>GMM</th>
+      <td>0.4507</td>
+      <td>0.8043</td>
+      <td>382.6749</td>
+      <td>0.0610</td>
+      <td>0.4644</td>
+      <td>-0.6563</td>
+    </tr>
+    <tr>
+      <th>FCM</th>
+      <td>0.3987</td>
+      <td>0.9564</td>
+      <td>668.6193</td>
+      <td>0.0049</td>
+      <td>0.3659</td>
+      <td>-0.7673</td>
+    </tr>
+    <tr>
+      <th>SOM</th>
+      <td>0.4036</td>
+      <td>0.9277</td>
+      <td>662.5838</td>
+      <td>0.0130</td>
+      <td>0.3427</td>
+      <td>-0.7462</td>
+    </tr>
+  </tbody>
+</table></details>
+  <p class="topo"><a href="#topo">↑ voltar ao topo</a></p>
+</section>
+</main></body></html>

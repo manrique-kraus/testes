@@ -61,7 +61,13 @@ Nº = ordem em que o teste foi feito.
 | 26 | 25/11/2026 | [Filtro 03: Diferença Absoluta Média: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Filtro-03_Diferenca-Absoluta-Media_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_diferenca: tensao, tensao\_carga, corrente\_carga | A\_base=17, B\_diferenca=14 | 857 |
 | 27 | 25/11/2026 | [Filtro 03: Diferença Absoluta Média: XJTU](https://manrique-kraus.github.io/testes/relatorios/Filtro-03_Diferenca-Absoluta-Media_XJTU.html) | XJTU | A\_base: tensao, cap, corrente / B\_diferenca: corrente\_carga, tempo\_carga, corrente | A\_base=2, B\_diferenca=3 | 47 |
 
-## Fase 7: Todos os campos da tabela (verdes)
+## Fase 7: Seleção de características: encapsulamento
+
+| Nº | Data | Teste | Datasets | Features | K | Células |
+|---|---|---|---|---|---|---|
+| 31 | 25/11/2026 | [Encapsulamento 01: Seleção Progressiva: 13 datasets Li-ion](https://manrique-kraus.github.io/testes/relatorios/Encapsulamento-01_Selecao-Progressiva_13-datasets.html) | 13 datasets Li-ion | A\_base: tensao, cap, corrente / B\_progressiva: tempo\_carga, cap\_carga, dtensao | A\_base=17, B\_progressiva=3 | 857 |
+
+## Fase 8: Todos os campos da tabela (verdes)
 
 | Nº | Data | Teste | Datasets | Features | K | Células |
 |---|---|---|---|---|---|---|

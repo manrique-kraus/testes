@@ -147,5 +147,16 @@
   "k": "A_base=2, B_diferenca=3",
   "celulas": "47",
   "ciclo_ref": 100
+ },
+ "Encapsulamento-01_Selecao-Progressiva_13-datasets.html": {
+  "fase": "Seleção de características: encapsulamento",
+  "titulo": "Encapsulamento 01: Seleção Progressiva",
+  "data": "2026-11-25",
+  "quando": "2026-11-25 17:11:48.055105-03:00",
+  "datasets": "CALCE + HNEI + HUST + ISU_ILCC + MATR + MICH + MICH_EXP + RWTH + SNL + Stanford + Tongji + UL_PUR + XJTU",
+  "features": "A_base: tensao, cap, corrente | B_progressiva: tempo_carga, cap_carga, dtensao",
+  "k": "A_base=17, B_progressiva=3",
+  "celulas": "857",
+  "ciclo_ref": 100
  }
 }
