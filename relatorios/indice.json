@@ -57,5 +57,15 @@
   "k": "A_base=7, B_fisher=5",
   "celulas": "385",
   "ciclo_ref": 100
+ },
+ "Filtro-01_Fisher-Score_13-datasets.html": {
+  "fase": "Seleção de características: filtro",
+  "titulo": "Filtro 01: Fisher Score",
+  "data": "2026-11-25",
+  "datasets": "CALCE + HNEI + HUST + ISU_ILCC + MATR + MICH + MICH_EXP + RWTH + SNL + Stanford + Tongji + UL_PUR + XJTU",
+  "features": "A_base: tensao, cap, corrente | B_fisher: cap, cap_carga, tempo_carga",
+  "k": "A_base=17, B_fisher=6",
+  "celulas": "857",
+  "ciclo_ref": 100
  }
 }
