@@ -1,0 +1,17 @@
+posição,feature,descrição,desempenho,situação,no conjunto base
+1,cap,SOH (capacidade de descarga),0.222181,escolhida,sim
+2,tempo_desc,Tempo de descarga (h),0.328621,escolhida,
+3,corrente_carga,Corrente média de carga (C),0.414309,escolhida,
+4,tensao,Tensão média de descarga (V),0.416308,,sim
+5,tensao_carga,Tensão média de carga (V),0.460849,,
+6,dtensao,Δ Tensão média de descarga (V),0.475623,,
+7,tempo_carga,Tempo de carga (h),0.487442,,
+8,dtensao_carga,Δ Tensão média de carga (V),0.488853,,
+9,corrente,Corrente de descarga (C),0.489872,,sim
+10,dcorrente,Δ Corrente de descarga (C),0.490919,,
+11,cap_carga,Capacidade de carga / nominal,0.491266,,
+12,dtempo_carga,Δ Tempo de carga (h),0.491173,,
+13,dtempo_desc,Δ Tempo de descarga (h),0.491265,,
+14,dcap,Δ SOH (capacidade de descarga),0.490921,,
+15,dcorrente_carga,Δ Corrente média de carga (C),0.490384,,
+16,dcap_carga,Δ Capacidade de carga / nominal,0.489828,,

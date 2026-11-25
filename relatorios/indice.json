@@ -158,5 +158,16 @@
   "k": "A_base=17, B_progressiva=3",
   "celulas": "857",
   "ciclo_ref": 100
+ },
+ "Encapsulamento-02_Eliminacao-Regressiva_13-datasets.html": {
+  "fase": "Seleção de características: encapsulamento",
+  "titulo": "Encapsulamento 02: Eliminação Regressiva",
+  "data": "2026-11-25",
+  "quando": "2026-11-25 17:22:01.230294-03:00",
+  "datasets": "CALCE + HNEI + HUST + ISU_ILCC + MATR + MICH + MICH_EXP + RWTH + SNL + Stanford + Tongji + UL_PUR + XJTU",
+  "features": "A_base: tensao, cap, corrente | B_regressiva: cap, tempo_desc, corrente_carga",
+  "k": "A_base=17, B_regressiva=7",
+  "celulas": "857",
+  "ciclo_ref": 100
  }
 }
