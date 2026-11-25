@@ -1,0 +1,17 @@
+posição,feature,descrição,Fisher Score,situação,no conjunto base
+1,tensao_carga,Tensão média de carga (V),3.477062,escolhida,
+2,tempo_carga,Tempo de carga (h),2.293755,escolhida,
+3,corrente_carga,Corrente média de carga (C),1.862936,escolhida,
+4,cap_carga,Capacidade de carga / nominal,1.048837,,
+5,cap,SOH (capacidade de descarga),1.041852,,sim
+6,dtensao,Δ Tensão média de descarga (V),0.480837,,
+7,dtempo_carga,Δ Tempo de carga (h),0.241474,,
+8,dtensao_carga,Δ Tensão média de carga (V),0.228365,,
+9,dcorrente_carga,Δ Corrente média de carga (C),0.183826,,
+10,dtempo_desc,Δ Tempo de descarga (h),0.155716,,
+11,dcap,Δ SOH (capacidade de descarga),0.141572,,
+12,tempo_desc,Tempo de descarga (h),0.135753,,
+13,dcorrente,Δ Corrente de descarga (C),0.127528,,
+14,dcap_carga,Δ Capacidade de carga / nominal,0.114966,,
+15,corrente,Corrente de descarga (C),0.072175,,sim
+16,tensao,Tensão média de descarga (V),0.059244,,sim
